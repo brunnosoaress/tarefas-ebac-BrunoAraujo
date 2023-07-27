@@ -1,0 +1,23 @@
+public class CalculoMedia {
+    public static void main(String args[]){
+        calcularMedia();
+    }
+
+    public static void calcularMedia() {
+
+        int nota1 = 10;
+        int nota2 = 5;
+        int nota3 = 8;
+        int nota4 = 3;
+
+        int nota5 = (nota1 + nota2 + nota3 + nota4) / 4;
+
+        System.out.println("Sua primeira nota = " + nota1);
+        System.out.println("Sua segunda nota = " + nota2);
+        System.out.println("Sua terceira mota = " + nota3);
+        System.out.println("Sua quarta nota = " + nota4);
+        System.out.println("Sua média é = " + nota5);
+
+    }
+
+}
