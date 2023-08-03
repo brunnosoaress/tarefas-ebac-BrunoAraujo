@@ -1,0 +1,22 @@
+package br.com.bsoares;
+
+import java.util.Scanner;
+
+public class ControleFluxo {
+
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Olá, digite um número: ");
+
+        int nota = s.nextInt();
+
+        if (nota >= 8 && nota <= 10) {
+            System.out.println("Você está de Aprovado");
+        } if (nota >= 5 && nota <= 7) {
+            System.out.println("Você está de Recuperação");
+        } else if (nota >= 0 && nota <= 4) {
+            System.out.println("Você está Reprovado");
+        }
+            System.out.println("Fim do Programa");
+    }
+}
