@@ -1,0 +1,45 @@
+package br.com.bsoares;
+
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Colecoes {
+
+    public static void main(String args[]) {
+        ListaNomesOrdenada();
+        ListaDeNomesPorGenero();
+    }
+
+    private static void ListaNomesOrdenada() {
+        System.out.println("***** Lista de Nomes *****");
+        List<String> lista = new ArrayList<String>();
+        lista.add("Larissa");
+        lista.add("Tiago");
+        lista.add("Isabela");
+        lista.add("Abner");
+        System.out.println(lista);
+        System.out.println("***** Lista de Nomes em Ordem Ascedente *****");
+        Collections.sort(lista);
+        System.out.println(lista);
+        System.out.println("");
+    }
+
+    private static void ListaDeNomesPorGenero() {
+        System.out.println("***** Lista de Nomes Separada por Genero *****");
+        String listaDeNomes = "Larissa-F, Tiago-M, Isabela-F, Abner-M";
+        String[] nomes = listaDeNomes.split(",");
+
+        List<String> nomesMasculinos = new ArrayList<>();
+        List<String> nomesFemininos = new ArrayList<>();
+
+        for (String nome : nomes) {
+            if (nome.endsWith("F")) {
+                nomesFemininos.add(nome);
+            } else {
+                nomesMasculinos.add(nome);
+            }
+        }
+
+        System.out.println("Nomes Masculinos" + nomesMasculinos);
+        System.out.println("Nomes Femininos" + nomesFemininos);
