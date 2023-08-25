@@ -1,0 +1,88 @@
+package br.com.bsoares;
+
+public abstract class Pessoa {
+
+    private String nome;
+
+    private String sobrenome;
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+} 
+
+package br.com.bsoares;
+
+public class Fisica extends Pessoa {
+
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+}
+
+package br.com.bsoares;
+
+public class Juridica extends Pessoa {
+
+    private String cnpj;
+
+    private String nomeEmpresa;
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    } 
+
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
+    }
+
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
+    }
+}
+
+package br.com.bsoares;
+
+public class App {
+
+    public static void main(String args[]) {
+        System.out.println("**** Pessoa Fisica ****");
+        Fisica fisica = new Fisica();
+        fisica.setCpf("4523910958");
+        fisica.setNome("Jorge");
+        fisica.setSobrenome("Fonseca");
+        System.out.print(fisica.getNome() + " é uma pessoa fisica cujo o cpf é o: " + fisica.getCpf());
+        System.out.println("");
+
+        System.out.println("**** Pessoa Juridica ****");
+        Juridica juridica = new Juridica();
+        juridica.setCnpj("3985104582");
+        juridica.setNomeEmpresa("Starfix");
+        juridica.setNome("Francisco");
+        juridica.setSobrenome("Souza");
+        System.out.println(juridica.getNome() + " é dono da empresa " + juridica.getNomeEmpresa() + " cujo o cnpj é o: " + juridica.getCnpj());
+    }
+}
