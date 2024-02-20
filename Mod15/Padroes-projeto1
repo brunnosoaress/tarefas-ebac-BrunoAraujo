@@ -1,3 +1,5 @@
+package br.com.bsoares
+
 import java.util.HashMap;
 import java.util.Map;
 
