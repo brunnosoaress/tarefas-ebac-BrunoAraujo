@@ -1,1 +1,90 @@
+import java.util.HashMap;
+import java.util.Map;
+
+
+public interface Carro {
+    void exibirCaracteristicas();
+}
+
+
+public class CarroPopular implements Carro {
+    private String marca;
+    private String modelo;
+
+    public CarroPopular(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    @Override
+    public void exibirCaracteristicas() {
+        System.out.println("Carro popular: " + marca + " " + modelo);
+    }
+}
+
+
+public class CarroLuxo implements Carro {
+    private String marca;
+    private String modelo;
+
+    public CarroLuxo(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    @Override
+    public void exibirCaracteristicas() {
+        System.out.println("Carro luxo: " + marca + " " + modelo);
+    }
+}
+
+
+public interface FabricaCarro {
+    Carro criarCarro(String marca, String modelo);
+}
+
+
+public class FabricaCarroPopular implements FabricaCarro {
+    @Override
+    public Carro criarCarro(String marca, String modelo) {
+        return new CarroPopular(marca, modelo);
+    }
+}
+
+
+public class FabricaCarroLuxo implements FabricaCarro {
+    @Override
+    public Carro criarCarro(String marca, String modelo) {
+        return new CarroLuxo(marca, modelo);
+    }
+}
+
+
+public class FabricaCarroFactory {
+    private static final Map<String, FabricaCarro> fabricaCarros = new HashMap<>();
+
+    static {
+        fabricaCarros.put("popular", new FabricaCarroPopular());
+        fabricaCarros.put("luxo", new FabricaCarroLuxo());
+    }
+
+    public static FabricaCarro getFabricaCarro(String tipo) {
+        if (fabricaCarros.containsKey(tipo)) {
+            return fabricaCarros.get(tipo);
+        }
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        FabricaCarro popularCarro = FabricaCarroFactory.getFabricaCarro("popular");
+        Carro carroPopular = popularCarro.criarCarro("Fiat", "Uno");
+        carroPopular.exibirCaracteristicas();
+
+        FabricaCarro luxoCarro = FabricaCarroFactory.getFabricaCarro("luxo");
+        Carro carroLuxo = luxoCarro.criarCarro("Mercedez Benz", "AMG GT");
+        CarroLuxo.exibirCaracteristicas();
+    }
+}
 
