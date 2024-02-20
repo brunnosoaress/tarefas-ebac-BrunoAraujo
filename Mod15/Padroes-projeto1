@@ -1,4 +1,4 @@
-package br.com.bsoares.padroesprojeto;
+package br.com.bsoares.padroes;
 
 import java.util.HashMap;
 import java.util.Map;
